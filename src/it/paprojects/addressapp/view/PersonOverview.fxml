@@ -52,6 +52,12 @@
                         <Label text="City" GridPane.rowIndex="3" />
                         <Label text="Postal Code" GridPane.rowIndex="4" />
                         <Label text="Birthday" GridPane.rowIndex="5" />
+                        <Label GridPane.columnIndex="1" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <ButtonBar layoutX="-14.0" layoutY="544.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
