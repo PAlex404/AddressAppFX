@@ -1,5 +1,6 @@
 package it.paprojects.addressapp.view;
 
+import it.paprojects.addressapp.control.PersonOverviewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -17,9 +18,17 @@ public class PersonOverview {
     public void buildAndCenterPanel(BorderPane borderPane) {
         try {
             AnchorPane anchorPane = loader.load();
+
+            initController();
+
             borderPane.setCenter(anchorPane);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+    }
+
+    private void initController() {
+        PersonOverviewController controller = loader.getController();
+        controller.setData();
     }
 }
