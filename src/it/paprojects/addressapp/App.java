@@ -13,9 +13,16 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 
 public class App extends Application {
+    // TODO Maybe there's a better solution but I don't know how
+    private static Stage pStage;
+
+    public static Stage getPrimaryStage() {
+        return pStage;
+    }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
+        pStage = primaryStage;
         initMockModel();
 
         RootLayout rootLayout = new RootLayout();

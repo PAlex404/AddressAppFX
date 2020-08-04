@@ -1,5 +1,6 @@
 package it.paprojects.addressapp.model;
 
 public enum BeansEnum {
-    ARCHIVE
+    ARCHIVE,
+    PERSON_EDIT_DIALOG;
 }

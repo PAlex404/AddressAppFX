@@ -68,4 +68,13 @@ public class Person {
     public ObjectProperty<LocalDate> birthdayProperty() {
         return birthday;
     }
+
+    public void set(Person otherPerson) {
+        this.lastName = otherPerson.lastNameProperty();
+        this.firstName = otherPerson.firstNameProperty();
+        this.street = otherPerson.streetProperty();
+        this.city = otherPerson.cityProperty();
+        this.postalCode = otherPerson.postalCodeProperty();
+        this.birthday = otherPerson.birthdayProperty();
+    }
 }
