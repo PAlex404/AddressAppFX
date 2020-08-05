@@ -28,22 +28,15 @@ public class DAOArchive implements IDAOArchive {
         Gson gson = gsonBuilder
                 .registerTypeAdapter(Person.class, new PersonAdapter())
                 .create();
-        Reader reader = null;
-        List<Person> personList = null;
 
-        try {
-            reader = new FileReader(filePath);
+        List<Person> personList = null;
+        try (Reader reader = new FileReader(filePath)) {
             personList = gson.fromJson(reader, new TypeToken<List<Person>>() {}.getType());
             logger.debug("List loading...: " + personList.size() + " people");
             setPersonFilePath(filePath);
             return personList;
         } catch (Exception ex) {
             throw new DAOException("Cannot load json file: " + filePath + "\n" + ex.getMessage());
-        }
-        finally {
-            try {
-                reader.close();
-            } catch (Exception ex) {}
         }
     }
 

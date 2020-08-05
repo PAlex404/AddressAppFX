@@ -4,7 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 public class AlertDialog {
-    private Alert alert;
+    private final Alert alert;
 
     public AlertDialog(Alert.AlertType type, Stage stage, String context) {
         this.alert = new Alert(type);

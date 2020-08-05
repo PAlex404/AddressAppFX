@@ -1,6 +1,5 @@
 package it.paprojects.addressapp.persistence;
 
-import it.paprojects.addressapp.model.Archive;
 import it.paprojects.addressapp.model.Person;
 
 import java.io.File;

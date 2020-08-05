@@ -7,13 +7,14 @@ import it.paprojects.addressapp.model.Person;
 import it.paprojects.addressapp.view.AlertDialog;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class PersonAddEditController {
 
@@ -30,9 +31,33 @@ public class PersonAddEditController {
     @FXML
     private TextField postalCodeField;
     @FXML
-    private TextField birthdayField;
+    private DatePicker datePicker;
 
     private Person selectedPerson;
+
+    @FXML
+    private void initialize() {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MMMM/yyyy");
+        datePicker.setConverter(new StringConverter<>() {
+            @Override
+            public String toString(LocalDate date) {
+                if (date != null) {
+                    return dateFormatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, dateFormatter);
+                } else {
+                    return null;
+                }
+            }
+        });
+    }
 
     public void init(Person selectedPerson) {
         this.selectedPerson = selectedPerson;
@@ -43,7 +68,7 @@ public class PersonAddEditController {
             streetField.setText(selectedPerson.getStreet());
             cityField.setText(selectedPerson.getCity());
             postalCodeField.setText(String.valueOf(selectedPerson.getPostalCode()));
-            birthdayField.setText(selectedPerson.getBirthday().format(DateTimeFormatter.ofPattern("dd/MMMM/yyyy")));
+            datePicker.setValue(selectedPerson.getBirthday());
         }
     }
 
@@ -63,7 +88,7 @@ public class PersonAddEditController {
                 streetField.getText(),
                 cityField.getText(),
                 Integer.parseInt(postalCodeField.getText()),
-                LocalDate.parse(birthdayField.getText(), DateTimeFormatter.ofPattern("dd/MMMM/yyyy"))
+                datePicker.getValue()
         );
 
         if (this.selectedPerson == null) {
@@ -99,15 +124,8 @@ public class PersonAddEditController {
                 errors.append("Postal code not valid, must be an integer!\n");
             }
         }
-        if (birthdayField.getText() == null || birthdayField.getText().trim().isEmpty()) {
+        if (datePicker.getValue() == null) {
             errors.append("Birthday date not valid!\n");
-        } else {
-            try {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MMMM/yyyy");
-                LocalDate.parse(birthdayField.getText(), formatter);
-            } catch (DateTimeParseException dtpe) {
-                errors.append("Birthday date is not valid. Use the format dd/MMMM/yyyy !\n");
-            }
         }
         return errors.toString();
     }
