@@ -27,7 +27,7 @@ public class AddEditDialog {
             dialogStage.initOwner(primaryStage);
             dialogStage.setScene(new Scene(anchorPane));
 
-            initController(dialogStage, selectedPerson);
+            initController(selectedPerson);
 
             dialogStage.showAndWait();
         } catch (IOException ioe) {
@@ -35,10 +35,8 @@ public class AddEditDialog {
         }
     }
 
-    private void initController(Stage dialogStage, Person selectedPerson) {
+    private void initController(Person selectedPerson) {
         PersonAddEditController controller = loader.getController();
-        if (selectedPerson != null) {
-            controller.initLabels(selectedPerson);
-        }
+        controller.init(selectedPerson);
     }
 }

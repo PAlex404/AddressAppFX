@@ -32,13 +32,19 @@ public class PersonAddEditController {
     @FXML
     private TextField birthdayField;
 
-    public void initLabels(Person selectedPerson) {
-        lastNameField.setText(selectedPerson.getLastName());
-        firstNameField.setText(selectedPerson.getFirstName());
-        streetField.setText(selectedPerson.getStreet());
-        cityField.setText(selectedPerson.getCity());
-        postalCodeField.setText(String.valueOf(selectedPerson.getPostalCode()));
-        birthdayField.setText(selectedPerson.getBirthday().format(DateTimeFormatter.ofPattern("dd/MMMM/yyyy")));
+    private Person selectedPerson;
+
+    public void init(Person selectedPerson) {
+        this.selectedPerson = selectedPerson;
+
+        if (selectedPerson != null) {
+            lastNameField.setText(selectedPerson.getLastName());
+            firstNameField.setText(selectedPerson.getFirstName());
+            streetField.setText(selectedPerson.getStreet());
+            cityField.setText(selectedPerson.getCity());
+            postalCodeField.setText(String.valueOf(selectedPerson.getPostalCode()));
+            birthdayField.setText(selectedPerson.getBirthday().format(DateTimeFormatter.ofPattern("dd/MMMM/yyyy")));
+        }
     }
 
     @FXML
@@ -60,12 +66,11 @@ public class PersonAddEditController {
                 LocalDate.parse(birthdayField.getText(), DateTimeFormatter.ofPattern("dd/MMMM/yyyy"))
         );
 
-        Person selectedPerson = (Person) Model.getBean(BeansEnum.PERSON_EDIT_DIALOG);
-        if (selectedPerson == null) {
+        if (this.selectedPerson == null) {
             Archive archive = (Archive) Model.getBean(BeansEnum.ARCHIVE);
             archive.addPerson(tmpPerson);
         } else {
-            selectedPerson.set(tmpPerson);
+            this.selectedPerson.set(tmpPerson);
         }
         dialogStage.close();
     }

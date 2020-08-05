@@ -1,0 +1,18 @@
+[
+  {
+    "lastName": "Perona",
+    "firstName": "Pasquale",
+    "street": "Via Angilla",
+    "city": "Livorno",
+    "postalCode": 42681,
+    "birthday": "17/agosto/2001"
+  },
+  {
+    "lastName": "Svelto",
+    "firstName": "Salvatore",
+    "street": "Via Veloce",
+    "city": "Parma",
+    "postalCode": 49329,
+    "birthday": "24/maggio/1997"
+  }
+]

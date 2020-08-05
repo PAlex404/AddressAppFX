@@ -89,7 +89,6 @@ public class PersonOverviewController {
     private void handleEdit() {
         AddEditDialog dialog = new AddEditDialog();
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
-        Model.putBean(BeansEnum.PERSON_EDIT_DIALOG, selectedPerson);
         dialog.buildAndShowDialog(App.getPrimaryStage(), selectedPerson);
 
         // Force update but it should be automatic

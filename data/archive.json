@@ -1,0 +1,50 @@
+[
+  {
+    "lastName": "Rossi",
+    "firstName": "Maria",
+    "street": "Via Ciccotti",
+    "city": "Roma",
+    "postalCode": 14420,
+    "birthday": "28/gennaio/1970"
+  },
+  {
+    "lastName": "Stroll",
+    "firstName": "Rocco",
+    "street": "Via Nuova",
+    "city": "Parma",
+    "postalCode": 81467,
+    "birthday": "24/maggio/1995"
+  },
+  {
+    "lastName": "Richot",
+    "firstName": "Armand",
+    "street": "Viale Orin",
+    "city": "Blois",
+    "postalCode": 73597,
+    "birthday": "14/marzo/1985"
+  },
+  {
+    "lastName": "Fico",
+    "firstName": "Franco",
+    "street": "Via Vecchia",
+    "city": "Perugia",
+    "postalCode": 11471,
+    "birthday": "03/settembre/1960"
+  },
+  {
+    "lastName": "Cattivaparte",
+    "firstName": "Napolione",
+    "street": "Via Francia",
+    "city": "Parigi",
+    "postalCode": 25724,
+    "birthday": "26/dicembre/1977"
+  },
+  {
+    "lastName": "Romiro",
+    "firstName": "Eva",
+    "street": "Via Croce",
+    "city": "Lecce",
+    "postalCode": 41731,
+    "birthday": "29/febbraio/2000"
+  }
+]
