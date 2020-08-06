@@ -8,6 +8,7 @@ import it.paprojects.addressapp.persistence.DAOArchive;
 import it.paprojects.addressapp.persistence.DAOException;
 import it.paprojects.addressapp.persistence.IDAOArchive;
 import it.paprojects.addressapp.view.AlertDialog;
+import it.paprojects.addressapp.view.BirthdayStatistics;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
@@ -29,8 +30,6 @@ public class RootLayoutController {
         File file = fileChooser.showOpenDialog(App.getPrimaryStage());
 
         if (file != null) {
-            System.out.println(file.getPath());
-            System.out.println(file.getAbsolutePath());
             try {
                 Archive archive = (Archive) Model.getBean(BeansEnum.ARCHIVE);
                 archive.setPersonData(dao.load(file.getAbsolutePath()));
@@ -72,6 +71,12 @@ public class RootLayoutController {
                 alert.show();
             }
         }
+    }
+
+    @FXML
+    private void handleShowStats() {
+        BirthdayStatistics stats = new BirthdayStatistics();
+        stats.buildAndShow(App.getPrimaryStage());
     }
 
     @FXML

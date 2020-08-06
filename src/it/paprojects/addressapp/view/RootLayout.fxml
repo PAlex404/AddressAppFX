@@ -52,6 +52,7 @@
                         <KeyCodeCombination alt="UP" code="D" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleShowStats" text="Show Statistics" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Help">
